@@ -1,0 +1,162 @@
+@function crearColor($hue, $sat, $lum) {
+    $lum: $lum * 10;
+
+    $colorHSL: hsl($hue, $sat, $lum);
+
+    // @return $colorHSL;
+
+    // Convertir a RGB //
+    $red: red($colorHSL);
+    $green: green($colorHSL);
+    $blue: blue($colorHSL);
+
+
+    
+    // Multiplicar per valors 0.298936021293775 * R + 0.587043074451121 * G + 0.114020904255103 * B //
+
+    $multR: 0.298936021293775;
+    $multG: 0.587043074451121;
+    $multB: 0.114020904255103;
+
+    // $red: $red * $multR;
+    // $green: $green * $multG;
+    // $blue: $blue * $multB;
+
+    $lluminositatColor: ($red * $multR + $green * $multG + $blue * $multB) / 255 * 100;
+
+    $factor: $lum / ($lluminositatColor + 0.000001);
+
+    $red: $red * $factor;
+    $green: $green * $factor;
+    $blue: $blue * $factor;
+
+    
+    $colorRGB: rgb($red, $green, $blue);
+
+
+    // limitar maxim 255
+    // $lum: min(max($lum, 0), 100);
+    // $lluminositatColor: min(max($lluminositatColor, 0), 100);
+    
+    // $res: $lum*$lum/($lluminositatColor - 0.000001);
+    // $res: $lum*$lum/($lluminositatColor - 0.000001);
+    
+    // $res: min(max($res, 0), 100);
+
+    // $luminosidadFinal: ($red * $multR + $green * $multG + $blue * $multB) / 255;
+
+    // $lluminositatColor: ($lum*$lum)/($lluminositatColor + 0.000001);
+    
+
+    // Convertir a HSL //
+    // $colorHSL: hsl(hue($colorRGB), saturation($colorRGB), lightness($colorRGB));
+    // $colorHSL: hsl($hue, $sat, lightness($colorRGB));
+    // $colorHSL: hsl($hue, saturation($colorRGB), lightness($colorRGB));
+    $colorHSL: hsl($hue, $sat, lightness($colorRGB));
+    // $colorHSL: hsl($hue, $sat, $lluminositatColor);
+
+    
+
+    // @return hsl($hue, 100%, $lightness * 100);
+    @return $colorHSL;
+}
+
+// @function crearColor($hue, $sat, $lum-deseada) {
+//     // Asegurarse de que la luminosidad deseada esté en el rango válido
+//     $lum-deseada: max(0, min(100, $lum-deseada));
+  
+//     // Calcular un color en HSL con la luminosidad deseada
+//     $color-deseado: hsl($hue, $sat, $lum-deseada);
+  
+//     // Obtener los canales RGB del color deseado
+//     $red: red($color-deseado);
+//     $green: green($color-deseado);
+//     $blue: blue($color-deseado);
+  
+//     // Calcular la luminosidad percibida del color actual
+//     $lum-actual: (0.3 * $red + 0.59 * $green + 0.11 * $blue) / 255 * 100;
+  
+//     // Comparar la luminosidad deseada con la actual
+//     @if ($lum-actual != 0) {
+//       // Factor para ajustar la luminosidad
+//       $factor-ajuste: $lum-deseada / $lum-actual;
+  
+//       // Ajustar los canales RGB para mejorar la luminosidad
+//       $nuevo-red: min($red * $factor-ajuste, 255);
+//       $nuevo-green: min($green * $factor-ajuste, 255);
+//       $nuevo-blue: min($blue * $factor-ajuste, 255);
+      
+//       // Convertir de nuevo a HSL con el nuevo valor de luminosidad
+//       @return rgb($nuevo-red, $nuevo-green, $nuevo-blue);
+//     }
+  
+//     // Si la luminosidad actual es 0, retornar el color en HSL original
+//     @return hsl($hue, $sat, $lum-deseada);
+// }
+
+
+
+// -----
+
+
+
+
+
+.page {
+
+    background-color: rgb(79, 79, 79);
+    color: var(--color-clar);
+    backdrop-filter: blur(20px);
+
+    font-size: 15px;
+
+
+    .cubs {
+        display: flex;
+        flex-wrap: wrap;
+        
+        height: 20px;
+
+        > div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            // padding: 0.5rem;
+
+            width: 9.09%;
+
+
+
+            &:nth-child(1) { background-color: var(--color-0);   color: var(--color-9) }
+            &:nth-child(2) { background-color: var(--color-1);   color: var(--color-9) }
+            &:nth-child(3) { background-color: var(--color-2);   color: var(--color-9) }
+            &:nth-child(4) { background-color: var(--color-3);   color: var(--color-9) }
+            &:nth-child(5) { background-color: var(--color-4);   color: var(--color-9) }
+            &:nth-child(6) { background-color: var(--color-5);   color: var(--color-9) }
+            &:nth-child(7) { background-color: var(--color-6);   color: var(--color-9) }
+            &:nth-child(8) { background-color: var(--color-7);   color: var(--color-9) }
+            &:nth-child(9) { background-color: var(--color-8);   color: var(--color-4) }
+            &:nth-child(10) { background-color: var(--color-9);  color: var(--color-4) }
+            &:nth-child(11) { background-color: var(--color-10); color: var(--color-4) }
+
+            // generate-color(60, "color", );
+
+
+        }
+    }
+
+}
+
+
+
+
+@for $hue from 0 through 360 {
+    .paleta-#{$hue} {
+        @for $lum from 0 through 10 {
+            --color-#{$lum}: #{crearColor($hue, 100, $lum)};
+            // --color-#{$lum}: lch(#{$lum*10} 255 #{$hue});
+            // --color-#{$lum}: hsv(#{$hue}, 100%, #{$lum*10});
+        }
+    }
+}

@@ -1,1 +1,1 @@
-# uniform-luminosity-palette
+# Uniform Luminosity Palette Generator

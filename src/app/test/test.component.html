@@ -1,90 +1,115 @@
-<div id="page" class="page p-3">
+<div class="mostra p-3 row g-0" style="position: fixed;">
+    <section class="col-6 blanc-i-negre">
+        <div class="cubs" style="height: 40px;" >
+            <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+        </div>
+    </section>
+    <section class="col-6 blanc-i-negre">
+        <div class="cubs" style="height: 40px;" >
+            <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+        </div>
+    </section>
+</div>
+
+<div id="page" class="page">
 
     
 
 
     <div class="row g-0">
-        <div class="col-6">
-            <div class="cubs paleta-240" style="height: 40px;" >
-                <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-            </div>
-            <div class="cubs paleta-60" style="height: 40px;" >
-                <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-            </div>
+        @for (i of [].constructor(2); track i) {
+            <section class="col-6">
+                <div class="cubs paleta-240" style="height: 40px;" >
+                    <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                </div>
+                <div class="cubs paleta-60" style="height: 40px;" >
+                    <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                </div>
 
-            <hr class="m-1">
+                <hr class="m-1">
 
-            <div class="cubs paleta-0">
-                <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-            </div>
-            <div class="cubs paleta-120">
-                <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-            </div>
-            <div class="cubs paleta-240">
-                <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-            </div>
-            <div class="cubs paleta-60">
-                <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-            </div>
-            <div class="cubs paleta-180">
-                <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-            </div>
-            <div class="cubs paleta-300">
-                <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-            </div>
+                <div class="cubs paleta-0">
+                    <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                </div>
+                <div class="cubs paleta-120">
+                    <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                </div>
+                <div class="cubs paleta-240">
+                    <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                </div>
+                <div class="cubs paleta-60">
+                    <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                </div>
+                <div class="cubs paleta-180">
+                    <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                </div>
+                <div class="cubs paleta-300">
+                    <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                </div>
 
-            <hr class="m-1">
+                <hr class="m-1">
 
-            <!-- <details>
-                <summary>Paleta colors</summary>
-                <div> -->
-                    @for (i of [].constructor(360); track i) {
-                        <div [className]="'cubs paleta-' + $index">
-                            <div>{{$index}}</div>
-                            <div>{{$index}}</div>
-                            <div>{{$index}}</div>
-                            <div>{{$index}}</div>
-                            <div>{{$index}}</div>
-                            <div>{{$index}}</div>
-                            <div>{{$index}}</div>
-                            <div>{{$index}}</div>
-                            <div>{{$index}}</div>
-                            <div>{{$index}}</div>
-                            <div>{{$index}}</div>
-                        </div>
-                    }
-                <!-- </div>
-            </details> -->
-        </div>
+                <!-- <details>
+                    <summary>Paleta colors</summary>
+                    <div> -->
+                        @for (i of [].constructor(360); track i) {
+                            <div [className]="'cubs paleta-' + $index">
+                                <div>{{$index}}</div>
+                                <div>{{$index}}</div>
+                                <div>{{$index}}</div>
+                                <div>{{$index}}</div>
+                                <div>{{$index}}</div>
+                                <div>{{$index}}</div>
+                                <div>{{$index}}</div>
+                                <div>{{$index}}</div>
+                                <div>{{$index}}</div>
+                                <div>{{$index}}</div>
+                                <div>{{$index}}</div>
+                            </div>
+                        }
+                    <!-- </div>
+                </details> -->
+            </section>
+        }
+
+
+        <div class="col-12 mt-5"></div>
+        <!-- 2nd row -->
+
+        <section class="col-6 fletxa">
+            &nbsp;?
+            <br>
+            →
+        </section>
 
         <!-- --- -->
 
-        <div class="col-6" style="filter:grayscale(1)">
-            <div class="cubs paleta-240" style="height: 40px;" >
+        <section class="col-6 blanc-i-negre">
+            <div class="cubs" style="height: 40px;" >
                 <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
             </div>
-            <div class="cubs paleta-60" style="height: 40px;" >
+            <div class="cubs" style="height: 40px;" >
                 <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
             </div>
 
             <hr class="m-1">
 
-            <div class="cubs paleta-0">
+            <div class="cubs">
                 <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
             </div>
-            <div class="cubs paleta-120">
+            <div class="cubs">
                 <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
             </div>
-            <div class="cubs paleta-240">
+            <div class="cubs">
                 <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
             </div>
-            <div class="cubs paleta-60">
+            <div class="cubs">
                 <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
             </div>
-            <div class="cubs paleta-180">
+            <div class="cubs">
                 <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
             </div>
-            <div class="cubs paleta-300">
+            <div class="cubs">
                 <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
             </div>
 
@@ -110,8 +135,10 @@
                     }
                 <!-- </div>
             </details> -->
-        </div>
+        </section>
+    
     </div>
+
 
     
 

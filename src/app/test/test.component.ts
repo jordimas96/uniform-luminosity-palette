@@ -9,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
     standalone: true,
 })
 export class TestComponent implements OnInit {
-    
+
+    public classePaleta = "autocalculated";
+
     constructor() { }
 
-    ngOnInit(): void {}
-    
+    ngOnInit(): void { }
+
 };

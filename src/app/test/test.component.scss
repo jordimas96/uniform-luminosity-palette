@@ -61,51 +61,43 @@
     @return $colorHSL;
 }
 
-// @function crearColor($hue, $sat, $lum-deseada) {
-//     // Asegurarse de que la luminosidad deseada esté en el rango válido
-//     $lum-deseada: max(0, min(100, $lum-deseada));
-  
-//     // Calcular un color en HSL con la luminosidad deseada
-//     $color-deseado: hsl($hue, $sat, $lum-deseada);
-  
-//     // Obtener los canales RGB del color deseado
-//     $red: red($color-deseado);
-//     $green: green($color-deseado);
-//     $blue: blue($color-deseado);
-  
-//     // Calcular la luminosidad percibida del color actual
-//     $lum-actual: (0.3 * $red + 0.59 * $green + 0.11 * $blue) / 255 * 100;
-  
-//     // Comparar la luminosidad deseada con la actual
-//     @if ($lum-actual != 0) {
-//       // Factor para ajustar la luminosidad
-//       $factor-ajuste: $lum-deseada / $lum-actual;
-  
-//       // Ajustar los canales RGB para mejorar la luminosidad
-//       $nuevo-red: min($red * $factor-ajuste, 255);
-//       $nuevo-green: min($green * $factor-ajuste, 255);
-//       $nuevo-blue: min($blue * $factor-ajuste, 255);
-      
-//       // Convertir de nuevo a HSL con el nuevo valor de luminosidad
-//       @return rgb($nuevo-red, $nuevo-green, $nuevo-blue);
-//     }
-  
-//     // Si la luminosidad actual es 0, retornar el color en HSL original
-//     @return hsl($hue, $sat, $lum-deseada);
-// }
-
-
-
 // -----
 
 
 
-.mostra {
+.mostra-flotant {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 1rem;
+    left: 1rem;
+    right: 1rem;
     z-index: 10000;
+}
+
+.botons-opcions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    gap: 0.5rem;
+    padding: 0.25rem;
+
+    background-color: hsl(209, 10%, 27%);
+    border-radius: 28px;
+
+    button {
+        padding: 0.5rem 1.5rem;
+        font-size: 1.2rem;
+        border: none;
+        border-radius: 50rem;
+
+        background-color: transparent;
+        color: hsl(209, 100%, 96%);
+
+        &.selected {
+            background-color: hsl(209, 100%, 96%);
+            color: hsl(209, 10%, 27%);
+        }
+    }
 }
 
 .blanc-i-negre {
@@ -132,11 +124,19 @@
 
     font-size: 15px;
     
-    padding: 3.5rem 1rem 1rem;
+    padding: 9rem 1rem 1rem;
 
     // Grayscale second section //
     .row > section:nth-child(even) {
         filter: grayscale(1);
+    }
+
+    .explicacio {
+        font-size: 20px;
+
+        a {
+            color: #5fc2ff;
+        }
     }
 }
 .cubs {
@@ -173,22 +173,124 @@
 
     }
 }
-.fletxa {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+.explicacio-fletxa {
+    font-size: 2.5rem;
+    padding: 1rem;
 
-    font-size: 5rem;
+    .fletxa {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+
+        font-size: 5rem;
+    }
 }
 
 
 
-@for $hue from 0 through 360 {
-    .paleta-#{$hue} {
-        @for $lum from 0 through 10 {
-            --color-#{$lum}: #{crearColor($hue, 100, $lum)};
-            // --color-#{$lum}: lch(#{$lum*10} 255 #{$hue});
-            // --color-#{$lum}: hsv(#{$hue}, 100%, #{$lum*10});
+.autocalculated {
+    @for $hue from 0 through 360 {
+        .paleta-#{$hue} {
+            @for $lum from 0 through 10 {
+                --color-#{$lum}: #{crearColor($hue, 100, $lum)};
+                // --color-#{$lum}: lch(#{$lum*10} 255 #{$hue});
+                // --color-#{$lum}: hsv(#{$hue}, 100%, #{$lum*10});
+            }
         }
     }
+}
+.hardcoded {
+    @for $hue from 0 through 360 {
+        .paleta-#{$hue} {
+    
+            @if ($hue > 330 and $hue <= 360 or $hue >= 0 and $hue <= 30) {
+                // 0 //
+                --color-0: hsl(#{$hue}, 100%, 0%);
+                --color-1: hsl(#{$hue}, 100%, 23%);
+                --color-2: hsl(#{$hue}, 100%, 47%);
+                --color-3: hsl(#{$hue}, 100%, 55%);
+                --color-4: hsl(#{$hue}, 100%, 62%);
+                --color-5: hsl(#{$hue}, 100%, 68%);
+                --color-6: hsl(#{$hue}, 100%, 75%);
+                --color-7: hsl(#{$hue}, 100%, 81%);
+                --color-8: hsl(#{$hue}, 100%, 87%);
+                --color-9: hsl(#{$hue}, 100%, 94%);
+                --color-10: hsl(#{$hue}, 100%, 100%);
+            }
+            @if ($hue > 30 and $hue <= 90) {
+                // 60 //
+                --color-0: hsl(#{$hue}, 100%, 0%);
+                --color-1: hsl(#{$hue}, 100%, 5%);
+                --color-2: hsl(#{$hue}, 100%, 11%);
+                --color-3: hsl(#{$hue}, 100%, 16%);
+                --color-4: hsl(#{$hue}, 100%, 22%);
+                --color-5: hsl(#{$hue}, 100%, 27%);
+                --color-6: hsl(#{$hue}, 100%, 32%);
+                --color-7: hsl(#{$hue}, 100%, 38%);
+                --color-8: hsl(#{$hue}, 100%, 43%);
+                --color-9: hsl(#{$hue}, 100%, 49%);
+                --color-10: hsl(#{$hue}, 100%, 100%);
+            }
+            @if ($hue > 90 and $hue <= 150) {
+                // 120 //
+                --color-0: hsl(#{$hue}, 100%, 0%);
+                --color-1: hsl(#{$hue}, 100%, 7%);
+                --color-2: hsl(#{$hue}, 100%, 14%);
+                --color-3: hsl(#{$hue}, 100%, 21%);
+                --color-4: hsl(#{$hue}, 100%, 28%);
+                --color-5: hsl(#{$hue}, 100%, 35%);
+                --color-6: hsl(#{$hue}, 100%, 42%);
+                --color-7: hsl(#{$hue}, 100%, 49%);
+                --color-8: hsl(#{$hue}, 100%, 66%);
+                --color-9: hsl(#{$hue}, 100%, 84%);
+                --color-10: hsl(#{$hue}, 100%, 100%);
+            }
+            @if ($hue > 150 and $hue <= 210) {
+                // 180 //
+                --color-0: hsl(#{$hue}, 100%, 0%);
+                --color-1: hsl(#{$hue}, 100%, 6%);
+                --color-2: hsl(#{$hue}, 100%, 13%);
+                --color-3: hsl(#{$hue}, 100%, 19%);
+                --color-4: hsl(#{$hue}, 100%, 25%);
+                --color-5: hsl(#{$hue}, 100%, 32%);
+                --color-6: hsl(#{$hue}, 100%, 38%);
+                --color-7: hsl(#{$hue}, 100%, 45%);
+                --color-8: hsl(#{$hue}, 100%, 53%);
+                --color-9: hsl(#{$hue}, 100%, 76%);
+                --color-10: hsl(#{$hue}, 100%, 100%);
+            }
+            @if ($hue > 210 and $hue <= 270) {
+                // 240 //
+                --color-0: hsl(#{$hue}, 100%, 0%);
+                --color-1: hsl(#{$hue}, 100%, 51%);
+                --color-2: hsl(#{$hue}, 100%, 57%);
+                --color-3: hsl(#{$hue}, 100%, 62%);
+                --color-4: hsl(#{$hue}, 100%, 68%);
+                --color-5: hsl(#{$hue}, 100%, 73%);
+                --color-6: hsl(#{$hue}, 100%, 78%);
+                --color-7: hsl(#{$hue}, 100%, 84%);
+                --color-8: hsl(#{$hue}, 100%, 89%);
+                --color-9: hsl(#{$hue}, 100%, 95%);
+                --color-10: hsl(#{$hue}, 100%, 100%);
+            }
+            @if ($hue > 270 and $hue <= 330) {
+                // 300 //
+                --color-0: hsl(#{$hue}, 100%, 0%);
+                --color-1: hsl(#{$hue}, 100%, 17%);
+                --color-2: hsl(#{$hue}, 100%, 35%);
+                --color-3: hsl(#{$hue}, 100%, 51%);
+                --color-4: hsl(#{$hue}, 100%, 58%);
+                --color-5: hsl(#{$hue}, 100%, 65%);
+                --color-6: hsl(#{$hue}, 100%, 72%);
+                --color-7: hsl(#{$hue}, 100%, 79%);
+                --color-8: hsl(#{$hue}, 100%, 86%);
+                --color-9: hsl(#{$hue}, 100%, 93%);
+                --color-10: hsl(#{$hue}, 100%, 100%);
+            }
+            --accent-color: hsl(#{$hue}, 100%, 50%);
+        }
+    }
+}
+.portfolio {
+
 }

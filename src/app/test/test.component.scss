@@ -66,10 +66,9 @@
 
 
 .mostra-flotant {
-    position: fixed;
+    position: sticky;
     top: 1rem;
-    left: 1rem;
-    right: 1rem;
+    padding: 1rem;
     z-index: 10000;
 }
 
@@ -118,13 +117,11 @@
 
 .page {
 
-    background-color: rgb(79, 79, 79);
-    color: white;
     backdrop-filter: blur(20px);
 
     font-size: 15px;
     
-    padding: 9rem 1rem 1rem;
+    padding: 2rem 1rem 1rem;
 
     // Grayscale second section //
     .row > section:nth-child(even) {
@@ -132,7 +129,19 @@
     }
 
     .explicacio {
+        width: fit-content;
+        margin: auto;
+        margin-bottom: 1rem;
+
+        padding: 1rem;
+        border-radius: 1.5rem;
+        background-color: #445560;
+        color: #bbe4ff;
+
+        min-height: 92px; // = 2 linies //
+
         font-size: 20px;
+        text-align: center;
 
         a {
             color: #5fc2ff;

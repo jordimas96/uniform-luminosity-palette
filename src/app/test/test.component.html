@@ -2,6 +2,7 @@
 
     <div class="col-12 d-flex justify-content-center m-2">
         <div class="botons-opcions">
+            <button (click)="classePaleta = 'default'" [class.selected]="classePaleta == 'default'">Default</button>
             <button (click)="classePaleta = 'autocalculated'" [class.selected]="classePaleta == 'autocalculated'">Calculated/auto-generated</button>
             <button (click)="classePaleta = 'hardcoded'" [class.selected]="classePaleta == 'hardcoded'">Harcoded (steps of 60º)</button>
             <button (click)="classePaleta = 'portfolio'" [class.selected]="classePaleta == 'portfolio'">Same as portfolio</button>
@@ -10,60 +11,65 @@
 
     <section class="col-6 blanc-i-negre">
         <div class="cubs" style="height: 40px;" >
-            <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+            @for (_ of [].constructor(11); track _) { <div></div> }
         </div>
     </section>
     <section class="col-6 blanc-i-negre">
         <div class="cubs" style="height: 40px;" >
-            <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+            @for (_ of [].constructor(11); track _) { <div></div> }
         </div>
     </section>
 </div>
 
 <div id="page" class="page">
 
-    <p class="explicacio">
-        @if (classePaleta == 'autocalculated') {
-            This palette is auto-generated based on the perceived luminosity of each hue.
-        }
-        @if (classePaleta == 'hardcoded') {
-            This palette is hardcoded in 60-degree hue steps, with the other hues adjusted to the nearest step. It has uniform luminosity across hues and a fixed saturation of 100%.
-        }
-        @if (classePaleta == 'portfolio') {
-            This palette is the one used in <a href="https://jordimas96.github.io/" target="_blank">my portfolio</a>. It doesn't maintain uniform luminosity across hues, but each hue has varied luminosity levels that look good individually. It automatically adapts to all 360 hues based on 60-degree steps.
-        }
-    </p>
+    <div class="zona-explicacio">
+        <div class="explicacio">
+            @if (classePaleta == 'default') {
+                This palette is the default one. You can see the range of hues, which each has a different luminosity level.
+            }
+            @if (classePaleta == 'autocalculated') {
+                This palette is auto-generated based on the perceived luminosity of each hue.
+            }
+            @if (classePaleta == 'hardcoded') {
+                This palette is hardcoded in 60-degree hue steps, with the other hues adjusted to the nearest step. It has uniform luminosity across hues and a fixed saturation of 100%.
+            }
+            @if (classePaleta == 'portfolio') {
+                This palette is the one used in <a href="https://jordimas96.github.io/" target="_blank">my portfolio</a>. It doesn't maintain uniform luminosity across hues, but each hue has a set of varied luminosity levels that look good individually. It automatically adapts to all 360 hues based on 60-degree steps, with the other hues adjusted to the nearest step.
+            }
+        </div>
+    </div>
 
     <div class="row g-0" [ngClass]="classePaleta">
         <!-- x2 -->
-        @for (i of [].constructor(2); track i) {
+        @for (_ of [].constructor(2); track _) {
             <section class="col-6">
                 <div class="cubs paleta-240" style="height: 40px;" >
-                    <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                    @for (_ of [].constructor(11); track _) { <div></div> }
                 </div>
                 <div class="cubs paleta-60" style="height: 40px;" >
-                    <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                    @for (_ of [].constructor(11); track _) { <div></div> }
                 </div>
 
                 <hr class="m-1">
 
                 <div class="cubs paleta-0">
-                    <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                    @for (_ of [].constructor(11); track _) { <div></div> }
                 </div>
                 <div class="cubs paleta-120">
-                    <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                    @for (_ of [].constructor(11); track _) { <div></div> }
                 </div>
                 <div class="cubs paleta-240">
-                    <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                    @for (_ of [].constructor(11); track _) { <div></div> }
                 </div>
                 <div class="cubs paleta-60">
-                    <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                    @for (_ of [].constructor(11); track _) { <div></div> }
                 </div>
                 <div class="cubs paleta-180">
-                    <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                    @for (_ of [].constructor(11); track _) { <div></div> }
                 </div>
                 <div class="cubs paleta-300">
-                    <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                    @for (_ of [].constructor(11); track _) { <div></div> }
                 </div>
 
                 <hr class="m-1">
@@ -71,19 +77,11 @@
                 <!-- <details>
                     <summary>Paleta colors</summary>
                     <div> -->
-                        @for (i of [].constructor(360); track i) {
+                        @for (_ of [].constructor(360); track _) {
                             <div [className]="'cubs paleta-' + $index">
-                                <div>{{$index}}</div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
+                                @for (_ of [].constructor(11); track _) {
+                                    <div>{{ $first ? $index : "" }}</div>
+                                }
                             </div>
                         }
                     <!-- </div>
@@ -104,31 +102,31 @@
 
         <section class="col-6 blanc-i-negre">
             <div class="cubs" style="height: 40px;" >
-                <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                @for (_ of [].constructor(11); track _) { <div></div> }
             </div>
             <div class="cubs" style="height: 40px;" >
-                <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                @for (_ of [].constructor(11); track _) { <div></div> }
             </div>
 
             <hr class="m-1">
 
             <div class="cubs">
-                <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                @for (_ of [].constructor(11); track _) { <div></div> }
             </div>
             <div class="cubs">
-                <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                @for (_ of [].constructor(11); track _) { <div></div> }
             </div>
             <div class="cubs">
-                <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                @for (_ of [].constructor(11); track _) { <div></div> }
             </div>
             <div class="cubs">
-                <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                @for (_ of [].constructor(11); track _) { <div></div> }
             </div>
             <div class="cubs">
-                <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                @for (_ of [].constructor(11); track _) { <div></div> }
             </div>
             <div class="cubs">
-                <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                @for (_ of [].constructor(11); track _) { <div></div> }
             </div>
 
             <hr class="m-1">
@@ -136,19 +134,11 @@
             <!-- <details>
                 <summary>Paleta colors</summary>
                 <div> -->
-                    @for (i of [].constructor(360); track i) {
+                    @for (_ of [].constructor(360); track _) {
                         <div [className]="'cubs paleta-' + $index">
-                            <div>{{$index}}</div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
+                            @for (_ of [].constructor(11); track _) {
+                                <div>{{ $first ? $index : "" }}</div>
+                            }
                         </div>
                     }
                 <!-- </div>

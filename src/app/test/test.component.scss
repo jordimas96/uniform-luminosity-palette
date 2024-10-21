@@ -127,24 +127,29 @@
     .row > section.col-6:nth-of-type(even) {
         filter: grayscale(1);
     }
+    .zona-explicacio {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
 
-    .explicacio {
-        width: fit-content;
-        margin: auto;
-        margin-bottom: 1rem;
+        margin-bottom: 2rem;
 
-        padding: 1rem;
-        border-radius: 1.5rem;
-        background-color: #445560;
-        color: #bbe4ff;
+        min-height: 138px; // = 3 linies + paddings //
 
-        min-height: 92px; // = 2 linies //
+        .explicacio {
 
-        font-size: 20px;
-        text-align: center;
+            padding: 1.5rem 2rem;
+            border-radius: 2rem;
+            background-color: #445560;
+            color: #bbe4ff;
 
-        a {
-            color: #5fc2ff;
+
+            font-size: 20px;
+            text-align: center;
+
+            a {
+                color: #5fc2ff;
+            }
         }
     }
 }
@@ -201,7 +206,15 @@
 }
 
 
-
+.default {
+    @for $hue from 0 through 360 {
+        .paleta-#{$hue} {
+            @for $lum from 0 through 10 {
+                --color-#{$lum}: #{ hsl($hue, 100, $lum * 10) };
+            }
+        }
+    }
+}
 .autocalculated {
     @for $hue from 0 through 360 {
         .paleta-#{$hue} {

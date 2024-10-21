@@ -4,7 +4,7 @@
         <div class="botons-opcions">
             <button (click)="classePaleta = 'autocalculated'" [class.selected]="classePaleta == 'autocalculated'">Calculated/auto-generated</button>
             <button (click)="classePaleta = 'hardcoded'" [class.selected]="classePaleta == 'hardcoded'">Harcoded (steps of 60º)</button>
-            <!-- <button (click)="classePaleta = 'portfolio'" [class.selected]="classePaleta == 'portfolio'">Same as portfolio</button> -->
+            <button (click)="classePaleta = 'portfolio'" [class.selected]="classePaleta == 'portfolio'">Same as portfolio</button>
         </div>
     </div>
 
@@ -97,9 +97,7 @@
 
         <section class="col-6 explicacio-fletxa">
             <!-- &nbsp;? -->
-            The goal is to create a palette that, when grayscaled, looks like that.
-            <br>
-            <div class="fletxa">→</div>
+            The goal is to create a palette that, when grayscaled, looks like this <span class="fletxa">→</span>
         </section>
 
         <!-- --- -->

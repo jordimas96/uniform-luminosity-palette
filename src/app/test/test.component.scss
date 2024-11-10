@@ -101,17 +101,17 @@
 
 .blanc-i-negre {
     > div {
-        > div:nth-child(1) { background-color: hsl(0, 0%, 0) !important; color: white !important; }
-        > div:nth-child(2) { background-color: hsl(0, 0%, 10) !important; color: white !important; }
-        > div:nth-child(3) { background-color: hsl(0, 0%, 20) !important; color: white !important; }
-        > div:nth-child(4) { background-color: hsl(0, 0%, 30) !important; color: white !important; }
-        > div:nth-child(5) { background-color: hsl(0, 0%, 40) !important; color: white !important; }
-        > div:nth-child(6) { background-color: hsl(0, 0%, 50) !important; color: white !important; }
-        > div:nth-child(7) { background-color: hsl(0, 0%, 60) !important; color: white !important; }
-        > div:nth-child(8) { background-color: hsl(0, 0%, 70) !important; color: white !important; }
-        > div:nth-child(9) { background-color: hsl(0, 0%, 80) !important; color: black !important; }
-        > div:nth-child(10) { background-color: hsl(0, 0%, 90) !important; color: black !important; }
-        > div:nth-child(11) { background-color: hsl(0, 0%, 100) !important; color: black !important; }
+        > div:nth-child(1) { background-color: hsl(0, 0%, 0%) !important; color: white !important; }
+        > div:nth-child(2) { background-color: hsl(0, 0%, 10%) !important; color: white !important; }
+        > div:nth-child(3) { background-color: hsl(0, 0%, 20%) !important; color: white !important; }
+        > div:nth-child(4) { background-color: hsl(0, 0%, 30%) !important; color: white !important; }
+        > div:nth-child(5) { background-color: hsl(0, 0%, 40%) !important; color: white !important; }
+        > div:nth-child(6) { background-color: hsl(0, 0%, 50%) !important; color: white !important; }
+        > div:nth-child(7) { background-color: hsl(0, 0%, 60%) !important; color: white !important; }
+        > div:nth-child(8) { background-color: hsl(0, 0%, 70%) !important; color: white !important; }
+        > div:nth-child(9) { background-color: hsl(0, 0%, 80%) !important; color: black !important; }
+        > div:nth-child(10) { background-color: hsl(0, 0%, 90%) !important; color: black !important; }
+        > div:nth-child(11) { background-color: hsl(0, 0%, 100%) !important; color: black !important; }
     }
 }
 

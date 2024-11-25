@@ -11,7 +11,7 @@
     $blue: blue($colorHSL);
 
 
-    
+
     // Multiplicar per valors 0.298936021293775 * R + 0.587043074451121 * G + 0.114020904255103 * B //
 
     $multR: 0.298936021293775;
@@ -30,23 +30,23 @@
     $green: $green * $factor;
     $blue: $blue * $factor;
 
-    
+
     $colorRGB: rgb($red, $green, $blue);
 
 
     // limitar maxim 255
     // $lum: min(max($lum, 0), 100);
     // $lluminositatColor: min(max($lluminositatColor, 0), 100);
-    
+
     // $res: $lum*$lum/($lluminositatColor - 0.000001);
     // $res: $lum*$lum/($lluminositatColor - 0.000001);
-    
+
     // $res: min(max($res, 0), 100);
 
     // $luminosidadFinal: ($red * $multR + $green * $multG + $blue * $multB) / 255;
 
     // $lluminositatColor: ($lum*$lum)/($lluminositatColor + 0.000001);
-    
+
 
     // Convertir a HSL //
     // $colorHSL: hsl(hue($colorRGB), saturation($colorRGB), lightness($colorRGB));
@@ -55,7 +55,7 @@
     $colorHSL: hsl($hue, $sat, lightness($colorRGB));
     // $colorHSL: hsl($hue, $sat, $lluminositatColor);
 
-    
+
 
     // @return hsl($hue, 100%, $lightness * 100);
     @return $colorHSL;
@@ -67,7 +67,7 @@
 
 .mostra-flotant {
     position: sticky;
-    top: 1rem;
+    top: 0;
     padding: 1rem;
     z-index: 10000;
 }
@@ -76,16 +76,18 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-
     gap: 0.5rem;
+
     padding: 0.25rem;
+    font-size: 1.2rem;
 
     background-color: hsl(209, 10%, 27%);
-    border-radius: 28px;
+    border-radius: 24px;
 
     button {
+        flex: auto;
+
         padding: 0.5rem 1.5rem;
-        font-size: 1.2rem;
         border: none;
         border-radius: 50rem;
 
@@ -120,7 +122,7 @@
     backdrop-filter: blur(20px);
 
     font-size: 15px;
-    
+
     padding: 2rem 1rem 1rem;
 
     // Grayscale second section //
@@ -156,7 +158,7 @@
 .cubs {
     display: flex;
     flex-wrap: wrap;
-    
+
     height: 20px;
 
     > div {
@@ -190,7 +192,7 @@
 .explicacio-fletxa {
     font-size: 2.5rem;
     padding: 1rem;
-    
+
 
     border: 4px ridge #1d87a1;
     background: linear-gradient(to right, hsl(0, 100%, 10%), hsl(0, 40%, 60%));
@@ -229,7 +231,7 @@
 .hardcoded {
     @for $hue from 0 through 360 {
         .paleta-#{$hue} {
-    
+
             @if ($hue > 330 and $hue <= 360 or $hue >= 0 and $hue <= 30) {
                 // 0 //
                 --color-0: hsl(#{$hue}, 100%, 0%);
@@ -321,7 +323,7 @@
 .portfolio {
     @for $hue from 0 through 360 {
         .paleta-#{$hue} {
-    
+
             @if ($hue > 330 and $hue <= 360 or $hue >= 0 and $hue <= 30) {
                 // 0 //
                 --color-0: hsl(#{$hue}, 100%, 7%);
@@ -417,5 +419,24 @@
 
         --color--1: black;
         --color-10: white;
+    }
+}
+
+// Pantalla Mòbil //
+@media only screen and (max-width: 575px) {
+    .botons-opcions {
+        font-size: 1rem;
+
+        button {
+            padding: 0.5rem 0.8rem;
+        }
+    }
+    .explicacio-fletxa {
+        font-size: 1.4rem;
+        padding: 0.5rem;
+
+        .fletxa {
+            font-size: 2.5rem;
+        }
     }
 }

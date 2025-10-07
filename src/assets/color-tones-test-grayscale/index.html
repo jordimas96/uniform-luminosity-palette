@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        html {
+            color-scheme: dark;
+            font-family: Arial;
+        }
+        body {
+            background-color: gray;
+        }
+
+        .container {
+            background: url(fons.jpg);
+            background-size: 100% 100%;
+            width: fit-content;
+            padding: 6rem;
+            border-radius: 2rem;
+        }
+
+        .container > div {
+            display: flex;
+            /* filter: grayscale(1); */
+        }
+        .container > div > div {
+            height: 10rem;
+            width: 10rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+        .div1 { background-color: hsl(0, 100%, 68%); color: hsl(0, 100%, 50%); }
+        .div2 { background-color: hsl(60, 100%, 27%); color: hsl(60, 100%, 50%); }
+        .div3 { background-color: hsl(120, 100%, 35%); color: hsl(120, 100%, 50%); }
+        .div4 { background-color: hsl(180, 100%, 32%); color: hsl(180, 100%, 50%); }
+        .div5 { background-color: hsl(240, 100%, 73%); color: hsl(240, 100%, 50%); }
+        .div6 { background-color: hsl(300, 100%, 65%); color: hsl(300, 100%, 50%); }
+
+        </style>
+    </head>
+    <body>
+        
+        <div id="container" class="container">
+            <div>
+                <div class="div1">1</div>
+                <div class="div2">2</div>
+                <div class="div3">3</div>
+            </div>
+            <div>
+                <div class="div4">4</div>
+                <div class="div5">5</div>
+                <div class="div6">6</div>
+            </div>
+        </div>
+
+        <br>
+        <label><input type="checkbox" id="checkbox" onclick="toggleGrayscale()"> Toggle grayscale</label>
+
+    <script>
+
+        function toggleGrayscale() {
+            var container = document.getElementById("container");
+            var checkbox = document.getElementById("checkbox");
+
+            if (checkbox.checked) {
+                container.style.filter = "grayscale(1)";
+            } else {
+                container.style.filter = "none";
+            }
+
+        }
+    </script>
+</body>
+</html>

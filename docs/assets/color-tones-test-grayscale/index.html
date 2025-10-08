@@ -11,29 +11,53 @@
             font-family: Arial;
         }
         body {
-            background-color: gray;
+            text-align: center;
+
+            display: flex;
+            align-items: stretch;
+            flex-direction: column;
+            height: 100dvh;
+            margin: 0;
+        }
+        .fons {
+            background-color: #867aa0;
+            height: 100%;
+            padding: 1rem;
+        }
+
+        h1 {
+            color: cyan;
         }
 
         .container {
-            background: url(fons.jpg);
-            background-size: 100% 100%;
             width: fit-content;
-            padding: 6rem;
-            border-radius: 2rem;
+            margin: 1rem auto;
+            border-radius: 1rem;
+            overflow: hidden;
+
+            box-shadow: -2px 2px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
         }
 
         .container > div {
             display: flex;
-            /* filter: grayscale(1); */
         }
         .container > div > div {
             height: 10rem;
             width: 10rem;
+            max-width: 33vw;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 4rem;
         }
+
+        @media (max-width: 600px) {
+            .container > div > div {
+                height: 7rem;
+                width: 7rem;
+            }
+        }
+        
         .div1 { background-color: hsl(0, 100%, 68%); color: hsl(0, 100%, 50%); }
         .div2 { background-color: hsl(60, 100%, 27%); color: hsl(60, 100%, 50%); }
         .div3 { background-color: hsl(120, 100%, 35%); color: hsl(120, 100%, 50%); }
@@ -41,39 +65,62 @@
         .div5 { background-color: hsl(240, 100%, 73%); color: hsl(240, 100%, 50%); }
         .div6 { background-color: hsl(300, 100%, 65%); color: hsl(300, 100%, 50%); }
 
+        label {
+            font-size: 1.7rem;
+            font-weight: bold;
+            color: rgb(143 255 0);
+            padding-left: 2rem;
+        }
+        input {
+            width: 20rem;
+            filter: hue-rotate(60deg);
+        }
+
+        img {
+            height: 15rem;
+            border-radius: 2rem;
+        }
+
         </style>
     </head>
     <body>
+        <div class="fons">
         
-        <div id="container" class="container">
-            <div>
-                <div class="div1">1</div>
-                <div class="div2">2</div>
-                <div class="div3">3</div>
+            <h1>All these colors have the same emitted light, because in grayscale they look the same</h1>
+            <div id="container" class="container">
+                <div>
+                    <div class="div1">1</div>
+                    <div class="div2">2</div>
+                    <div class="div3">3</div>
+                </div>
+                <div>
+                    <div class="div4">4</div>
+                    <div class="div5">5</div>
+                    <div class="div6">6</div>
+                </div>
             </div>
-            <div>
-                <div class="div4">4</div>
-                <div class="div5">5</div>
-                <div class="div6">6</div>
-            </div>
+
+            <br>
+            <label>Grayscale: <input type="range" id="slider" min="0" max="1" step="0.01" value="0" oninput="updateGrayscale()"></label>
+
+            <br><br>
+
+            <h2>Test image</h2>
+            <img src="imatge.jpg">
+
         </div>
 
-        <br>
-        <label><input type="checkbox" id="checkbox" onclick="toggleGrayscale()"> Toggle grayscale</label>
 
-    <script>
 
-        function toggleGrayscale() {
-            var container = document.getElementById("container");
-            var checkbox = document.getElementById("checkbox");
 
-            if (checkbox.checked) {
-                container.style.filter = "grayscale(1)";
-            } else {
-                container.style.filter = "none";
+
+
+
+        <script>
+            function updateGrayscale() {
+                var slider = document.getElementById("slider");
+                document.body.style.filter = "grayscale(" + slider.value + ")";
             }
-
-        }
-    </script>
-</body>
+        </script>
+    </body>
 </html>
